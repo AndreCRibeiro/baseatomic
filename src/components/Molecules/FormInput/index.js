@@ -6,11 +6,11 @@ const FormInputStyle = styled.div`
     margin: 15px 0;
 `;
 
-const FormInput = ({ label, placeholder, onValueChange, ...props }) => {
+const FormInput = ({ label, placeholder, type, onValueChange, ...props }) => {
     return (
-        <FormInputStyle>
+        <FormInputStyle {...props}>
             <Atom.Text label={label} />
-            <Atom.Input placeholder={placeholder} />
+            <Atom.Input type={type} placeholder={placeholder} />
         </FormInputStyle>
     )
 }

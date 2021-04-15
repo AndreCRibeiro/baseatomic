@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GlobalStyles from './styles/global';
 
 import * as Atom from './components/Atoms';
-import * as Molecules from './components/Molecules';
+import * as Organisms from './components/Organisms';
 
 function App() {
+  const [formInput, setFormInput] = useState({
+    user: '',
+    password: '',
+  })
+
+  const handleClick = () => {
+    console.log({ formInput })
+  }
+
   return (
     <>
       <GlobalStyles />
       <Atom.Container>
-        <Atom.Box>
-          <Atom.Title label="Título" />
-          <Atom.Text label="Oi" />
-          <Molecules.FormInput label="Usuário" placeholder="Teste" />
-          <Molecules.FormInput label="Senha" placeholder="Teste" />
-          <Atom.Button text="Texto" />
-        </Atom.Box>
+        <Organisms.Form
+          title="Bem-vindo!"
+          text="Preencha os campos"
+          buttonText="ENTRAR"
+          type="password"
+          onChangeText={(e) => setFormInput(prevState => ({ ...prevState, user: e.target.value }))}
+          onChangePassword={(e) => setFormInput(prevState => ({ ...prevState, password: e.target.value }))}
+          buttonClick={() => handleClick()}
+        />
       </Atom.Container>
     </>
   );
