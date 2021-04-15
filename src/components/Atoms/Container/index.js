@@ -6,6 +6,9 @@ const ContainerStyle = styled.div`
     height: 100vh;
     background: #aaa;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 `;
 
 const Container = ({ children, ...props }) => {
